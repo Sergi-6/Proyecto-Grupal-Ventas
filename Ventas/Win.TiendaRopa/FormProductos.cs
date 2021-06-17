@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Ventas
+namespace Win.TiendaRopa
 {
-    public partial class Form1 : Form
+    public partial class FormProductos : Form
     {
-        public Form1()
+        public FormProductos()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Que tus decisiones sean tomadas en base a esperanza, nunca al miedo.");
         }
     }
 }
