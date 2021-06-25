@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Ventas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Win.TiendaRopa
 {
     public partial class FormLogin : Form
     {
+        SeguridadBL _seguridad;
+
         public FormLogin()
         {
             InitializeComponent();
+
+            _seguridad = new SeguridadBL();
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
@@ -35,14 +40,12 @@ namespace Win.TiendaRopa
             usuario = textBox1.Text;
             contrasena = textBox2.Text;
 
-            if (usuario == "admin1" && contrasena == "1234")
+            var resultado = _seguridad.Autorizar(usuario, contrasena);
+
+            if (resultado == true)
             {
                 this.Close();
 
-            }
-            else if (usuario == "admin2" && contrasena == "5678")
-            {
-                this.Close();
             }
             else
             {
