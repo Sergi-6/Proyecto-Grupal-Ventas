@@ -29,7 +29,7 @@ namespace Win.TiendaRopa
 
         }
 
-        private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void listaProductosBindingNavigatorSaveItem_Click(object sender, EventArgs e) // Click en boton Guardar
         {
             listaProductosBindingSource.EndEdit();
             var producto = (Producto)listaProductosBindingSource.Current;
@@ -47,7 +47,7 @@ namespace Win.TiendaRopa
             }
         }
 
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e) // Click en boton Agregar
         {
             _productos.AgregarProducto();
             listaProductosBindingSource.MoveLast();
@@ -55,7 +55,7 @@ namespace Win.TiendaRopa
             DeshabilitarHabilitarBotones(false);
         }
 
-        private void DeshabilitarHabilitarBotones(bool valor)
+        private void DeshabilitarHabilitarBotones(bool valor) // Metodo para habilitar o deshabilitar barra de opciones
         {
             bindingNavigatorMoveFirstItem.Enabled = valor;
             bindingNavigatorMoveLastItem.Enabled = valor;
@@ -69,7 +69,7 @@ namespace Win.TiendaRopa
 
         }
 
-        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e) // Click en boton Eliminar
         {
 
             if (idTextBox.Text != "")
@@ -83,7 +83,7 @@ namespace Win.TiendaRopa
             }
         }
 
-        private void Eliminar(int id)
+        private void Eliminar(int id) // Metodo para eliminar una entrada o un producto de la lista
         {
             
             var resultado = _productos.EliminarProducto(id);
@@ -98,7 +98,7 @@ namespace Win.TiendaRopa
             }
         }
 
-        private void toolStripButtoncancelar_Click(object sender, EventArgs e)
+        private void toolStripButtoncancelar_Click(object sender, EventArgs e) // Click en boton Cancelar
         {
             DeshabilitarHabilitarBotones(true);
             Eliminar(0);

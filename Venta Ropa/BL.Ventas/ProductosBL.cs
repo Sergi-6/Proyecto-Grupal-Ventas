@@ -48,7 +48,7 @@ namespace BL.Ventas
             return ListaProductos;
         }
 
-        public Resultado GuardarProducto(Producto producto)
+        public Resultado GuardarProducto(Producto producto) // Metodo para el guardado de productos
         {
             var resultado = Validar(producto);
             if (resultado.Exitoso == false)
@@ -65,13 +65,13 @@ namespace BL.Ventas
             return resultado;
         }
 
-        public void AgregarProducto()
+        public void AgregarProducto() // Metodo para el agregado de productos
         {
             var nuevoProducto = new Producto();
             ListaProductos.Add(nuevoProducto);
         }
 
-        public bool EliminarProducto(int id)
+        public bool EliminarProducto(int id) // Metodo para la eliminacion de un producto
         {
             foreach (var producto in ListaProductos)
             {
@@ -84,7 +84,7 @@ namespace BL.Ventas
             return false;
         }
 
-        private Resultado Validar(Producto producto)
+        private Resultado Validar(Producto producto) // Metodo para la validacion de datos
         {
             var resultado = new Resultado();
             resultado.Exitoso = true;
@@ -111,7 +111,7 @@ namespace BL.Ventas
            
     }
 
-    public class Producto
+    public class Producto // Propiedades de producto
     {
         public int Id { get; set; }
         public string Descripcion { get; set; }
