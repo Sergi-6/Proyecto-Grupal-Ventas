@@ -40,6 +40,7 @@ namespace Win.TiendaRopa
             {
                 listaProductosBindingSource.ResetBindings(false);
                 DeshabilitarHabilitarBotones(true);
+                MessageBox.Show("Producto guardado");
             }
             else
             {
