@@ -33,11 +33,8 @@
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label nombreLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
-            this.listaClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaClientesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -46,49 +43,51 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.listaClientesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtoncancelar = new System.Windows.Forms.ToolStripButton();
             this.activoCheckBox = new System.Windows.Forms.CheckBox();
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
+            this.listaClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             activoLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingNavigator)).BeginInit();
             this.listaClientesBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
             // 
             activoLabel.AutoSize = true;
+            activoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             activoLabel.Location = new System.Drawing.Point(26, 100);
             activoLabel.Name = "activoLabel";
-            activoLabel.Size = new System.Drawing.Size(40, 13);
+            activoLabel.Size = new System.Drawing.Size(48, 16);
             activoLabel.TabIndex = 1;
             activoLabel.Text = "Activo:";
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
+            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             idLabel.Location = new System.Drawing.Point(26, 46);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.Size = new System.Drawing.Size(22, 16);
             idLabel.TabIndex = 3;
             idLabel.Text = "Id:";
             // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
+            nombreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             nombreLabel.Location = new System.Drawing.Point(26, 72);
             nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.Size = new System.Drawing.Size(60, 16);
             nombreLabel.TabIndex = 5;
             nombreLabel.Text = "Nombre:";
-            // 
-            // listaClientesBindingSource
-            // 
-            this.listaClientesBindingSource.DataSource = typeof(BL.Ventas.Cliente);
             // 
             // listaClientesBindingNavigator
             // 
@@ -121,32 +120,12 @@
             this.listaClientesBindingNavigator.TabIndex = 0;
             this.listaClientesBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
-            // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
-            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -208,6 +187,26 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Eliminar";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // listaClientesBindingNavigatorSaveItem
             // 
             this.listaClientesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -231,29 +230,34 @@
             // activoCheckBox
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaClientesBindingSource, "Activo", true));
-            this.activoCheckBox.Location = new System.Drawing.Point(79, 95);
+            this.activoCheckBox.Location = new System.Drawing.Point(111, 97);
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(104, 24);
             this.activoCheckBox.TabIndex = 2;
-            this.activoCheckBox.Text = "checkBox1";
             this.activoCheckBox.UseVisualStyleBackColor = true;
             // 
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaClientesBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(79, 43);
+            this.idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idTextBox.Location = new System.Drawing.Point(111, 42);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(289, 20);
-            this.idTextBox.TabIndex = 4;
+            this.idTextBox.Size = new System.Drawing.Size(289, 22);
+            this.idTextBox.TabIndex = 1;
             // 
             // nombreTextBox
             // 
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaClientesBindingSource, "Nombre", true));
-            this.nombreTextBox.Location = new System.Drawing.Point(79, 69);
+            this.nombreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreTextBox.Location = new System.Drawing.Point(111, 70);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(289, 20);
+            this.nombreTextBox.Size = new System.Drawing.Size(289, 22);
             this.nombreTextBox.TabIndex = 6;
+            // 
+            // listaClientesBindingSource
+            // 
+            this.listaClientesBindingSource.DataSource = typeof(BL.Ventas.Cliente);
             // 
             // FormClientes
             // 
@@ -269,10 +273,10 @@
             this.Controls.Add(this.listaClientesBindingNavigator);
             this.Name = "FormClientes";
             this.Text = "Clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingNavigator)).EndInit();
             this.listaClientesBindingNavigator.ResumeLayout(false);
             this.listaClientesBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

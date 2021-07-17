@@ -90,7 +90,8 @@ namespace BL.Ventas
         }
     }
 
-    public class Cliente
+    
+    public class Cliente  // Propiedades de clientes, incompleto...
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

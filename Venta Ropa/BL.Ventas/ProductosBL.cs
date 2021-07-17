@@ -124,7 +124,7 @@ namespace BL.Ventas
         public Categoria Categoria { get; set; }
         public int TipoId { get; set; } // Campo foraneo para hacer relacion con la tabla Tipo
         public Tipo Tipo { get; set; }
-        public byte[] Foto { get; set; }
+        public byte[] Foto { get; set; } // Campo para imagen
         public bool Activo { get; set; }
 
         public Producto()

@@ -45,12 +45,12 @@ namespace Win.TiendaRopa
 
             if (fotoPictureBox.Image !=  null)
             {
-                producto.Foto = Program.imageToByteArray(fotoPictureBox.Image);
+                producto.Foto = Program.imageToByteArray(fotoPictureBox.Image); // si la caja de imagen no esta vacia convertira en campo en arreglo
         
             }
             else
             {
-                producto.Foto = null;
+                producto.Foto = null; // si la caja de imagen esta vacia dejara el campo foto como vacio
             }
 
             var resultado = _productos.GuardarProducto(producto);
@@ -148,9 +148,9 @@ namespace Win.TiendaRopa
            
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // Click en boton remover imagen
         {
-            fotoPictureBox.Image = null;
+            fotoPictureBox.Image = null; // deja vacia la caja de imagen
         }
     }
 }

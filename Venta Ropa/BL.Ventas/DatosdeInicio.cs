@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace BL.Ventas
 {
-    public class DatosdeInicio : CreateDatabaseIfNotExists<Contexto>
+    // Agregando datos de inicio para combobox categoria y tipo
+
+    public class DatosdeInicio : CreateDatabaseIfNotExists<Contexto> 
     {
+
         protected override void Seed(Contexto contexto)
         {
             var usuarioAdmin = new Usuario();
@@ -82,11 +85,11 @@ namespace BL.Ventas
             // Clientes
 
             var cliente1 = new Cliente();
-            cliente1.Nombre = "Carlos";
+            cliente1.Nombre = "Carlos Villagran";
             contexto.Clientes.Add(cliente1);
 
             var cliente2 = new Cliente();
-            cliente2.Nombre = "Reina";
+            cliente2.Nombre = "Reina Arriaga";
             contexto.Clientes.Add(cliente2);
 
             base.Seed(contexto);
