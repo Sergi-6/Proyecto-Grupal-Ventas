@@ -51,8 +51,8 @@ namespace Win.TiendaRopa
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
-        {
-            Login();
-        }
+       {
+           Login();
+       }
     }
 }

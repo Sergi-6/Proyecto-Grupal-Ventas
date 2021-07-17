@@ -30,6 +30,15 @@ namespace BL.Ventas
             return ListaProductos;
         }
 
+        public void CancelarCambios()
+        {
+            foreach (var item in _contexto.ChangeTracker.Entries())
+            {
+                item.State = EntityState.Unchanged;
+                item.Reload();
+            }
+        }
+
         public Resultado GuardarProducto(Producto producto) // Metodo para el guardado de productos
         {
             var resultado = Validar(producto);
@@ -39,7 +48,6 @@ namespace BL.Ventas
             }
 
             _contexto.SaveChanges();
-
             resultado.Exitoso = true;
             return resultado;
         }
@@ -86,6 +94,19 @@ namespace BL.Ventas
                 resultado.Mensaje = "El precio deber ser mayor que 0";
                 resultado.Exitoso = false;
             }
+
+            if (producto.CategoriaId == 0)
+            {
+                resultado.Mensaje = "Seleccione una categoria";
+                resultado.Exitoso = false;
+            }
+
+            if (producto.TipoId == 0)
+            {
+                resultado.Mensaje = "Seleccione un tipo";
+                resultado.Exitoso = false;
+            }
+
             return resultado;
         }
            
@@ -99,7 +120,17 @@ namespace BL.Ventas
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public int Existencia { get; set; }
+        public int CategoriaId { get; set; } // campo foraneo para hacer relacion con la tabla categoria
+        public Categoria Categoria { get; set; }
+        public int TipoId { get; set; } // Campo foraneo para hacer relacion con la tabla Tipo
+        public Tipo Tipo { get; set; }
+        public byte[] Foto { get; set; }
         public bool Activo { get; set; }
+
+        public Producto()
+        {
+            Activo = true;
+        }
     }
 
     public class Resultado
