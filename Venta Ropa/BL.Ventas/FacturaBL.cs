@@ -67,9 +67,30 @@ namespace BL.Ventas
                 return resultado;
             }
 
+            CalcularExistencia(factura);
+
             _contexto.SaveChanges();
             resultado.Exitoso = true;
             return resultado;
+        }
+
+        private void CalcularExistencia(Factura factura)
+        {
+            foreach (var detalle in factura.FacturaDetalle)
+            {
+                var producto = _contexto.Productos.Find(detalle.ProductoId);
+                if (producto != null)
+                {
+                    if (factura.Activo == true)
+                    { 
+                        producto.Existencia = producto.Existencia - detalle.Cantidad;
+                    }
+                    else
+                    {
+                        producto.Existencia = producto.Existencia + detalle.Cantidad;
+                    }
+                }
+            }
         }
 
         private Resultado Validar(Factura factura)
@@ -77,7 +98,89 @@ namespace BL.Ventas
             var resultado = new Resultado();
             resultado.Exitoso = true;
 
+            if (factura == null)
+            {
+                resultado.Mensaje = "Agregue una factura para poder guardar";
+                resultado.Exitoso = false;
+
+                return resultado;
+            }
+
+            if (factura.Id != 0 && factura.Activo == true)
+            {
+                resultado.Mensaje = "La factura ya fue emitida y no se pueden realizar cambios en ella";
+                resultado.Exitoso = false;
+            }
+
+            if (factura.Activo == false)
+            {
+                resultado.Mensaje = "La factura esta anulada y no se pueden realizar cambios en ella";
+                resultado.Exitoso = false;
+            }
+
+            if (factura.ClienteId == 0)
+            {
+                resultado.Mensaje = "Seleccione un cliente";
+                resultado.Exitoso = false;
+            }
+
+            if (factura.FacturaDetalle.Count == 0)
+            {
+                resultado.Mensaje = "Agregue productos a la factura";
+                resultado.Exitoso = false;
+            }
+
+            foreach (var detalle in factura.FacturaDetalle)
+            {
+                if (detalle.ProductoId == 0)
+                {
+                    resultado.Mensaje = "Seleccione productos validos";
+                    resultado.Exitoso = false;
+                }
+            }
             return resultado;
+        }
+
+        public void CalcularFactura(Factura factura)
+        {
+            if (factura != null)
+            {
+                double subtotal = 0;
+
+                foreach (var detalle in factura.FacturaDetalle)
+                {
+                    var producto = _contexto.Productos.Find(detalle.ProductoId);
+                    if (producto != null)
+                    {
+                        detalle.Precio = producto.Precio;
+                        detalle.Total = detalle.Cantidad * producto.Precio;
+
+                        subtotal += detalle.Total;
+                    }
+                }
+
+                factura.Subtotal = subtotal;
+                factura.Impuesto = subtotal * 0.15;
+                factura.Total = subtotal + factura.Impuesto;
+            }
+        }
+
+        public bool AnularFactura(int id)
+        {
+            foreach (var factura in ListaFacturas)
+            {
+                if (factura.Id == id)
+                {
+                    factura.Activo = false;
+
+                    CalcularExistencia(factura);
+
+                    _contexto.SaveChanges();
+
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
