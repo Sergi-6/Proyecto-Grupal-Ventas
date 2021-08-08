@@ -51,6 +51,7 @@
             this.ClientSize = new System.Drawing.Size(634, 465);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "FormReporteFacturas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Facturas";
             this.ResumeLayout(false);
 

@@ -26,6 +26,54 @@ namespace Win.TiendaRopa
         {
             var formLogin = new FormLogin();
             formLogin.ShowDialog();
+
+            if (Program.UsuarioLogueado != null)
+            {
+                toolStripStatusLabel1.Text = "Usuario: " + Program.UsuarioLogueado.Nombre;
+
+                if (Program.UsuarioLogueado.TipoUsuario == "Usuarios Caja")
+                {
+                    productosToolStripMenuItem.Visible = false;
+                    clientesToolStripMenuItem.Visible = false;
+                    nuevaventaToolStripMenuItem.Visible = true;
+                    facturasToolStripMenuItem.Visible = true;
+                    administraciondeUsuariosToolStripMenuItem.Visible = false;
+                    reporteDeProductosToolStripMenuItem.Visible = false;
+                    reporteDeClientesToolStripMenuItem.Visible = false;
+                    reporteDeVentasToolStripMenuItem.Visible = true;
+                    reporteDeFacturasToolStripMenuItem.Visible = true;   
+                }
+
+                if (Program.UsuarioLogueado.TipoUsuario == "Usuarios Venta")
+                {
+                    productosToolStripMenuItem.Visible = false;
+                    clientesToolStripMenuItem.Visible = true;
+                    nuevaventaToolStripMenuItem.Visible = false;
+                    facturasToolStripMenuItem.Visible = false;
+                    administraciondeUsuariosToolStripMenuItem.Visible = false;
+                    reporteDeProductosToolStripMenuItem.Visible = false;
+                    reporteDeClientesToolStripMenuItem.Visible = true;
+                    reporteDeVentasToolStripMenuItem.Visible = false;
+                    reporteDeFacturasToolStripMenuItem.Visible = false;
+                }
+
+                if (Program.UsuarioLogueado.TipoUsuario == "Administradores")
+                {
+                    productosToolStripMenuItem.Visible = true;
+                    clientesToolStripMenuItem.Visible = true;
+                    nuevaventaToolStripMenuItem.Visible = true;
+                    facturasToolStripMenuItem.Visible = true;
+                    administraciondeUsuariosToolStripMenuItem.Visible = true;
+                    reporteDeProductosToolStripMenuItem.Visible = true;
+                    reporteDeClientesToolStripMenuItem.Visible = true;
+                    reporteDeVentasToolStripMenuItem.Visible = true;
+                    reporteDeFacturasToolStripMenuItem.Visible = true;
+                }
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -74,6 +122,13 @@ namespace Win.TiendaRopa
             var formReporteFacturas = new FormReporteFacturas();
             formReporteFacturas.MdiParent = this;
             formReporteFacturas.Show();
+        }
+
+        private void AdministraciondeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var formUsuarios = new FormUsuarios();
+            formUsuarios.MdiParent = this;
+            formUsuarios.Show();
         }
     }
 }

@@ -152,5 +152,23 @@ namespace Win.TiendaRopa
         {
             fotoPictureBox.Image = null; // deja vacia la caja de imagen
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var buscar = textBox1.Text;
+
+            if (string.IsNullOrEmpty(buscar) == true)
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
+            }
+            else
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos(buscar);
+            }
+
+            listaProductosBindingSource.ResetBindings(false);
+        }
+
+        
     }
 }

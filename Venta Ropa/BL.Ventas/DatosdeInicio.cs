@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace BL.Ventas
             var usuarioAdmin = new Usuario();
             usuarioAdmin.Nombre = "admin";
             usuarioAdmin.Contrasena = "123";
+            usuarioAdmin.TipoUsuario = "Administradores";
 
             contexto.Usuarios.Add(usuarioAdmin);
 
@@ -80,7 +82,7 @@ namespace BL.Ventas
             var tipo9 = new Tipo();
             tipo9.Descripcion = "Accesorios";
             contexto.Tipos.Add(tipo9);
-    
+
 
             // Clientes
 
@@ -92,7 +94,9 @@ namespace BL.Ventas
             cliente2.Nombre = "Reina Arriaga";
             contexto.Clientes.Add(cliente2);
 
-            base.Seed(contexto);
+            
+
+                base.Seed(contexto);
 
         }
     }
