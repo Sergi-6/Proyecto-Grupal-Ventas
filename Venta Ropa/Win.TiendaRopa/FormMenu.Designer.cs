@@ -179,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Win.TiendaRopa.Properties.Resources.ropa1;
+            this.BackgroundImage = global::Win.TiendaRopa.Properties.Resources.WhatsApp_Image_2021_07_29_at_5_43_45_PM__1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(597, 423);
             this.Controls.Add(this.statusStrip1);

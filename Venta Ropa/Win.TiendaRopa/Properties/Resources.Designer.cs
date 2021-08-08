@@ -119,5 +119,25 @@ namespace Win.TiendaRopa.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2021_07_29_at_5_43_45_PM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2021-07-29 at 5.43.45 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2021_07_29_at_5_43_45_PM__1_ {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2021-07-29 at 5.43.45 PM (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
